@@ -54,7 +54,7 @@ Uso de `Scanner` para interacción con el jugador.
 
 ---
 
-## 🛠Cómo ejecutar
+## Cómo ejecutar
 
 1. Clona el repositorio
 2. Compila el archivo:

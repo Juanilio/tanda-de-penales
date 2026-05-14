@@ -19,27 +19,33 @@ public class Main {
 
         do {
             System.out.println("\n=== TURNO " + turno + " de " + TOTAL_TURNOS + " ===");
-            System.out.println("+-------+");
-            System.out.println("| 1 2 3 |");
-            System.out.println("| 4 5 6 |");
-            System.out.println("| 7 8 9 |");
-            System.out.println("+-------+");
+            System.out.println("|-----------|");
+            System.out.println("| 1 | 2 | 3 |");
+            System.out.println("| 4 | 5 | 6 |");
+            System.out.println("| 7 | 8 | 9 |");
 
             System.out.println("\n-- Tú pateas --");
 
-            do {
                 System.out.print("¿A qué zona vas a patear? (1-9): ");
                 tiro = sc.nextInt();
-                if (tiro < 1 || tiro > 9) {
-                    System.out.println("⚠ Zona inválida. Elige entre 1 y 9.");
-                }
-            } while (tiro < 1 || tiro > 9);
 
             parada = ThreadLocalRandom.current().nextInt(1, 10);
 
-            if (tiro == parada) {
+            int resbalon = ThreadLocalRandom.current().nextInt(1, 101);
+
+            if(resbalon == 1){
+                System.out.println("TE RESBALASTE MANDASTE LA PELOTA A LAS NUBES");
+            }
+
+            else if (tiro == parada) {
                 System.out.println("ATAJADO! El portero se tiró a la zona " + parada);
-            } else {
+            }
+
+            else if(tiro > 9){
+                System.out.println("ERRASTE, MANDASTE LA PELOTA A LAS NUBES");
+            }
+
+            else {
                 System.out.println("¡GOOOOOOOOOOOL! Pateaste a la zona " + tiro);
                 puntaje_jugador++;
             }
@@ -54,11 +60,14 @@ public class Main {
                 }
             } while (parada < 1 || parada > 9);
 
-            tiro = ThreadLocalRandom.current().nextInt(1, 10);
+            tiro = ThreadLocalRandom.current().nextInt(1, 12);
 
             if (tiro == parada) {
                 System.out.println("¡ATAJADO! Adivinaste la zona " + tiro);
-            } else {
+            } else if(tiro > 9 ){
+                System.out.println("ERROOOOOO, HA MANDADO EL PENAL A LAS NUBES");
+            }
+            else {
                 System.out.println("¡GOOOOOOOOOOOL! La máquina pateó a la zona " + tiro);
                 puntaje_maquina++;
             }
